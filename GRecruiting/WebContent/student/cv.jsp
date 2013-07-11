@@ -12,7 +12,7 @@
 
   <div id="wrapper">
 
-     <jsp:include page="../includes/Header.jsp"></jsp:include>
+     <jsp:include page="../WEB-INF/includes/Header.jsp"></jsp:include>
     
 
       <ul class="glossymenu">

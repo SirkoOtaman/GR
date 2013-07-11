@@ -38,25 +38,12 @@ public class LogInOutController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserEntity currentUser = UserEntityManager.getByLoginPassword("login1", "pass1");
+		String login = request.getParameter("login");
+		String pass = request.getParameter("pass");
+		UserEntity currentUser = UserEntityManager.getByLoginPassword(login, pass);
 		HttpSession session = request.getSession(true);
-		session.setAttribute("TYPE", currentUser.getType());
-		session.setAttribute("ID", currentUser.getId());
-		response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Первый сервлет</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>OK</h1>");
-            out.println("</body>");
-            out.println("</html>");
-
-        } finally {
-            out.close();
-        }
+		session.setAttribute("USER", currentUser.getType());
+		
 		
 	}
 
