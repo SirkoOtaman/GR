@@ -20,3 +20,4 @@ private static final SessionFactory sessionFactory;
 		return sessionFactory.getCurrentSession();
 	}
 }
+//ojokjojho
