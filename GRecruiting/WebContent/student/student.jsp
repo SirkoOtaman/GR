@@ -61,6 +61,18 @@
 	    </div>
 	 <input type="submit" name="action" value="Підтвердити" align="middle">
 	</form>
+	<%/*
+	ID
+	fn
+	ln
+	grID
+	startdate
+	enddate
+	resumeID
+	USER ID
+	LOGIN 
+	password
+	*/ %>
     	</div>
       </div>
     </div>
