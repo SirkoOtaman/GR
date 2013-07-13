@@ -1,7 +1,6 @@
 package edu.grecruiting.controllers.session;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import edu.grecruiting.model.student.StudentEntity;
 import edu.grecruiting.model.user.UserEntity;
 import edu.grecruiting.model.user.UserEntityManager;
 

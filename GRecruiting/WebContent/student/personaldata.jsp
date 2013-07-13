@@ -1,3 +1,4 @@
+<%@ page import="java.util.List; import edu.grecruiting.model.student.*"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,48 +43,50 @@
    	 </div>
 
     	<div id="rightcolumn">
-			<form action="InputOutputResume" name="student" class="def" enctype="application/x-www-form-urlencoded">
+		<form action="/GRecruiting/RegistrationController" name="student" class="def" enctype="application/x-www-form-urlencoded" method="POST">
 	     <div class="tableRow">
-		<p> ID студента: </p>
-		<p> <input type="text" name="studID" > </p>
+		<p> Логін: </p>
+		<p> <input type="text" name="login" > </p>
 	    </div>
 	    <div class="tableRow">
-		<p> Адреса: </p>
-		<p> <input type="text" name="adress" > </p>
+		<p> Пароль: </p>
+		<p> <input type="password" name="pass" > </p>
 	    </div>
 	    <div class="tableRow">
-		<p>Дата народження: </p>
-		<p>   <input type="date" name="birthDate"> </p>
-	    </div>
-	    	 <div class="tableRow">
-		<p>Місце народження: </p>
-		<p>   <input type="text" name="birthPLace"> </p>
+		<p> Пароль ще раз: </p>
+		<p> <input type="password" name="rpass" > </p>
 	    </div>
 	    <div class="tableRow">
-		<p> Середній бал: </p>
-		<p> <input type="number" name="avrgMark" min="3" max="5" step="0.1">  </p>
+		<p> Ім'я: </p>
+		<p> <input type="text" name="fname" > </p>
+	    </div>
+	    <div class="tableRow">
+		<p> Прізвище: </p>
+		<p> <input type="text" name="lname" > </p>
+	    </div>
+	    <div class="tableRow">
+	    <% List<StudentGroupEntity> groups = StudentGroupManager.getAll();%>
+		<p> Група </p>
+		<p> <select name="group" >
+				<%for(StudentGroupEntity g : groups){ %>
+					<option value="<%=g.getName()%>"><%=g.getName()%></option>
+				<%} %>
+			</select> </p>
+	    </div>
+	    <div class="tableRow">
+		<p>Дата початку навчання: </p>
+		<p>   <input type="date" name="SDate"> </p>
+	    </div>
+	    <div class="tableRow">
+		<p>Дата завершення навчання: </p>
+		<p>   <input type="date" name="EDate"> </p>
 	    </div>
 	    <div class="tableRow">
 		<p> E-mail: </p>
 		<p> <input type="text" name="email" ></p>
 	    </div>
-	    <div class="tableRow">
-		<p> Іноземні мови: </p>
-		<p> <input type="checkbox" name="eng" >Англійська <input type="checkbox" name="deu" >Німецька <input type="checkbox" name="fra" >Французька </p>
-	    </div>
-	    <div class="tableRow">
-		<p> Бажана посада: </p>
-		<p> <input type="text" name="wantedPost" > </p>
-	    </div>
-	    <div class="tableRow">
-		<p> Ключова інформація: </p>
-		<p> <textarea name="keyInfo" rows="5" cols="50"> - Знання принципів ООП і т.д.</textarea> </p>
-	    </div>
-	    <div class="tableRow">
-		<p> Інтереси та особисті навички: </p>
-		<p> <textarea name="interests" rows="5" cols="50"></textarea> </p>
-	    </div>
-	 <input type="submit" name="action" value="Додати дані">
+	    <input type="hidden" name="type" value="STUD">
+	 <input type="submit" name="action" value="Підтвердити">
 	</form>
                 <div class="clear"></div>
 		<div id="triplebox">

@@ -31,6 +31,8 @@ public class StudentEntity {
 	private Date endDate;
 	@Column(name="GROUPID")
 	private int groupID;
+	@Column(name="EMAIL")
+	private String email;
 	@OneToOne(fetch=FetchType.EAGER)
 	private ResumeEntity resumeID;
 	@OneToOne(fetch=FetchType.EAGER)
@@ -40,7 +42,7 @@ public class StudentEntity {
 		super();
 	}
 	public StudentEntity(int id, String fname, String lname, Date startDate,
-			Date endDate, int groupID, ResumeEntity resumeID) {
+			Date endDate, int groupID, ResumeEntity resumeID, String email, UserEntity userid) {
 		super();
 		this.id = id;
 		this.fname = fname;
@@ -49,6 +51,8 @@ public class StudentEntity {
 		this.endDate = endDate;
 		this.groupID = groupID;
 		this.resumeID = resumeID;
+		this.email = email;
+		this.userId = userid;
 	}
 	public int getId() {
 		return id;
@@ -103,6 +107,18 @@ public class StudentEntity {
 	 */
 	public void setUserId(UserEntity userId) {
 		this.userId = userId;
+	}
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
